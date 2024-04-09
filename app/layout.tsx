@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/Navbar";
+import { DashboardNav } from "@/components/DashboardNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navbar />
+          <div className="flex flex-col space-y-6 mt-10">
+            <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
+              <aside className="hidden w-[200px] flex-col md:flex">
+                {/* TODO: notes, image color picker, image resizer, format convertion, url shortener, voice to text */}
+                <DashboardNav />
+              </aside>
+              <main>{children}</main>
+            </div>
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
