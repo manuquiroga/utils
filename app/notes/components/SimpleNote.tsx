@@ -24,13 +24,14 @@ const SimpleNote: React.FC<SimpleNoteProps> = ({ note, fetchNotes }) => {
   };
 
   return (
-    <div className="border rounded-md flex justify-between items-center hover:border-white/25 transition duration-300">
+    <div className="border rounded-md flex justify-between items-center hover:border-black/40 dark:hover:border-white/25 transition duration-300">
       <Link href={`/notes/${note.id}`} className="flex-grow p-4">
-        <h2 className="text-xl font-semibold text-primary">{note.title}</h2>
-        <p className="text-sm text-muted-foreground">{formattedDate}</p>
+        <h2 className="text-md sm:text-lg md-text-xl font-semibold text-primary">{note.title}</h2>
+        <p className="text-muted-foreground text-xs sm:text-sm">{formattedDate}</p>
       </Link>
 
-      <div className="space-x-2 p-4">
+      <div className="flex px-4 gap-2 justify-between items-center">
+        {" "}
         <Button variant="ghost" onClick={() => handleEditNote(note)}>
           <SquarePen className="h-5 w-5" />
         </Button>

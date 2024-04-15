@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Settings, Home, NotebookPen, Pipette } from "lucide-react";
+import { Settings, Home, NotebookPen, Pipette, Link as LinkIcon, QrCode } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,6 +15,16 @@ export const navItems = [
     name: "Image Color Picker",
     href: "/image-color-picker",
     icon: Pipette,
+  },
+  {
+    name: "URL Shortener",
+    href: "/url-shortener",
+    icon: LinkIcon,
+  },
+  {
+    name: "QR Generator",
+    href: "/qr",
+    icon: QrCode,
   },
   {
     name: "Settings",
